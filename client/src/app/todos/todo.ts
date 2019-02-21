@@ -2,6 +2,6 @@ export interface Todo{
   id: string;
   owner: string;
   status: boolean;
-  body: boolean;
+  body: string;
   category: string;
 }
