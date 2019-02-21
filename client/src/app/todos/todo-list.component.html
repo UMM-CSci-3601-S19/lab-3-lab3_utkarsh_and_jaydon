@@ -11,15 +11,15 @@
           <input matInput id="todoStatus" #input type="text" placeholder="Filter by status"
                  (input)="todoStatus = $event.target.value">
         </mat-form-field>
-        <!--<mat-form-field>-->
-        <!--<input matInput id="todoCompany" #input type="text" placeholder="Search for company" (input)="contentChange($event.target.value)">-->
-        <!--</mat-form-field>-->
+        <mat-form-field>
+      <input matInput id="todoBody" #input type="text" placeholder="Search for Body" (input)="todoBody=$event.target.value">
+        </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem [id]="todo.email" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus)">
+          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus,todoBody)">
             <mat-expansion-panel-header>
               <!--The second todo shows the big list, Not sure what the email is about.-->
-              <mat-panel-title matTooltip="email: {{todo.email}}">{{todo.owner}}</mat-panel-title>
+              <mat-panel-title matTooltip="email: {{todo.email}}">{{todo.body}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
