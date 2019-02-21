@@ -58,7 +58,10 @@ describe('Todo component', () =>{
       todoComponent.setId('Jay_id');
       expect(todoComponent.todo).toBeDefined();
       expect(todoComponent.todo.owner).toBe('Jaydon');
+      expect(todoComponent.todo.status).toBe(true);
+      expect(todoComponent.todo.body).toBe('Agile Reading');
       expect(todoComponent.todo.category).toBe('homework');
+
     });
 
     it('returns undefined for EasterBunny', () => {
