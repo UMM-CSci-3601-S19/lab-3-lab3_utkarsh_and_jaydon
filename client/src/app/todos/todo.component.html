@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todos</title>
-</head>
-<body>
-
-</body>
-</html>
+<div *ngIf="todo" class="todo">
+  <ul>
+    <li>Owner: {{ todo.owner }}</li>
+    <li>Completion: {{ todo.status }}</li>
+    <li>Information: {{ todo.body }}</li>
+  </ul>
+</div>
