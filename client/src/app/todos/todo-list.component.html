@@ -8,7 +8,7 @@
           <input matInput id="todoOwner" #input placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
         </mat-form-field>
         <mat-form-field>
-          <input matInput id="todoStatus" #input type="number" placeholder="Filter by status"
+          <input matInput id="todoStatus" #input type="text" placeholder="Filter by status"
                  (input)="todoStatus = $event.target.value">
         </mat-form-field>
         <!--<mat-form-field>-->
@@ -18,12 +18,12 @@
         <mat-accordion *ngIf="todos; else todosError">
           <mat-expansion-panel #elem [id]="todo.email" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus)">
             <mat-expansion-panel-header>
-
+              <!--The second todo shows the big list, Not sure what the email is about.-->
               <mat-panel-title matTooltip="email: {{todo.email}}">{{todo.owner}}</mat-panel-title>
 
             </mat-expansion-panel-header>
-            <mat-panel-description>Works for {{todo.company}}</mat-panel-description>
-            <mat-panel-description>Status: {{todo.status}} years old</mat-panel-description>
+            <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
+            <mat-panel-description>Status: {{todo.status}}</mat-panel-description>
 
           </mat-expansion-panel>
         </mat-accordion>
