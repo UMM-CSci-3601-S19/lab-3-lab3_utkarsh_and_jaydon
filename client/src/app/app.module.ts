@@ -39,8 +39,9 @@ import {TodoComponent} from './todos/todo.component';
     TodoListService,
     {provide: APP_BASE_HREF, useValue: '/'},
     {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
+
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 export class AppModule {

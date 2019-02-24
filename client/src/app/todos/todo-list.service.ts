@@ -20,4 +20,8 @@ export class TodoListService {
   getTodoById(id: string): Observable<Todo> {
     return this.httpClient.get<Todo>(this.todoUrl + '/' + id);
   }
+
+  getTodoByStatus(status: boolean): Observable<Todo> {
+    return this.httpClient.get<Todo>(this.todoUrl + '/' + status);
+  }
 }
