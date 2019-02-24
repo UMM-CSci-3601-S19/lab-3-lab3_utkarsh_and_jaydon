@@ -21,7 +21,7 @@ export class TodoListService {
     return this.httpClient.get<Todo>(this.todoUrl + '/' + id);
   }
 
-  getTodoByStatus(status: boolean): Observable<Todo> {
-    return this.httpClient.get<Todo>(this.todoUrl + '/' + status);
+  getTodoByOwner(owner: string): Observable<Todo> {
+    return this.httpClient.get<Todo>(this.todoUrl + '/' + owner);
   }
 }

@@ -48,6 +48,5 @@ describe('User list', () => {
         expect(page.getUniqueUser("stokesclayton@momentia.com")).toEqual("Stokes Clayton");
 
         expect(page.getUniqueUser("merrillparker@escenta.com")).toEqual("Merrill Parker");
-
     });
 });
