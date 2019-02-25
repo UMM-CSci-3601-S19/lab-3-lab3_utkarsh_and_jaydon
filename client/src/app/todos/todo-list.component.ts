@@ -38,7 +38,7 @@ export class TodoListComponent implements OnInit {
     // Filter by owner
     if (searchOwner != null) {
       searchOwner = searchOwner.toLocaleLowerCase();
-      console.log("owner is: " + searchOwner);
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchOwner || todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
       });
@@ -46,6 +46,8 @@ export class TodoListComponent implements OnInit {
 
     // Filter by status
     if (searchStatus != null) {
+      searchStatus =searchStatus.toLocaleLowerCase();
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchStatus || (todo.status.toString().indexOf(searchStatus) !== -1);
       });
@@ -53,7 +55,8 @@ export class TodoListComponent implements OnInit {
 
     //Filter by body
     if(searchBody != null) {
-      console.log("Body is" + searchBody);
+      searchBody = searchBody.toLocaleLowerCase();
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
       return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
       });
@@ -61,6 +64,8 @@ export class TodoListComponent implements OnInit {
 
     //Filter by category
     if(searchCategory != null) {
+      searchCategory = searchCategory.toLocaleLowerCase();
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
       })
