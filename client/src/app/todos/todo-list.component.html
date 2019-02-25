@@ -5,18 +5,24 @@
       <mat-divider></mat-divider>
       <mat-card-content>
         <mat-form-field>
-          <input matInput id="todoOwner" #input placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
+          <input matInput id="todoOwner" #input placeholder="Filter by Owner" (input)="todoOwner = $event.target.value">
         </mat-form-field>
+
         <mat-form-field>
-          <input matInput id="todoStatus" #input type="text" placeholder="Filter by status"
+          <input matInput id="todoStatus" #input type="text" placeholder="Filter by Status"
                  (input)="todoStatus = $event.target.value">
         </mat-form-field>
+
         <mat-form-field>
       <input matInput id="todoBody" #input type="text" placeholder="Search for Body" (input)="todoBody=$event.target.value">
         </mat-form-field>
 
+        <mat-form-field>
+          <input matInput id="todoCategory" #input type="text" placeholder="Search for Category" (input)="todoCategory=$event.target.value">
+        </mat-form-field>
+
         <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus,todoBody)">
+          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus, todoBody, todoCategory)">
             <mat-expansion-panel-header>
               <!--The second todo shows the big list, Not sure what the email is about.-->
               <mat-panel-title matTooltip="status: {{todo.status}}">{{todo.body}}</mat-panel-title>
@@ -24,6 +30,7 @@
             </mat-expansion-panel-header>
             <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
             <mat-panel-description>Status: {{todo.status}}</mat-panel-description>
+            <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
 
           </mat-expansion-panel>
         </mat-accordion>

@@ -18,7 +18,7 @@ export class TodoListComponent implements OnInit {
   public todoOwner: string;
   public todoStatus: boolean;
   public todoBody: string;
- //public todoCategory: string;
+  public todoCategory: string;
 
 
   // Inject the TodoListService into this component.
@@ -31,14 +31,14 @@ export class TodoListComponent implements OnInit {
 
   }
   // searchCategory: string for when we want to add searching by category
-  public filterTodos(searchOwner: string, searchStatus: boolean, searchBody: string): Todo[] {
+  public filterTodos(searchOwner: string, searchStatus: string, searchBody: string, searchCategory: string): Todo[] {
 
     this.filteredTodos = this.todos;
 
     // Filter by owner
     if (searchOwner != null) {
       searchOwner = searchOwner.toLocaleLowerCase();
-
+      console.log("owner is: " + searchOwner);
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchOwner || todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
       });
@@ -46,16 +46,24 @@ export class TodoListComponent implements OnInit {
 
     // Filter by status
     if (searchStatus != null) {
-      this.filteredTodos = this.filteredTodos.filter((todo: Todo) => {
-        return !searchStatus || (todo.status === Boolean(searchStatus));
+      this.filteredTodos = this.filteredTodos.filter(todo => {
+        return !searchStatus || (todo.status.toString().indexOf(searchStatus) !== -1);
       });
     }
 
     //Filter by body
     if(searchBody != null) {
+      console.log("Body is" + searchBody);
       this.filteredTodos = this.filteredTodos.filter(todo => {
       return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
       });
+    }
+
+    //Filter by category
+    if(searchCategory != null) {
+      this.filteredTodos = this.filteredTodos.filter(todo => {
+        return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
+      })
     }
 
     return this.filteredTodos;
@@ -76,7 +84,7 @@ export class TodoListComponent implements OnInit {
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoStatus, this.todoBody);
+        this.filterTodos(this.todoOwner, this.todoStatus.toString(), this.todoBody, this.todoCategory);
       },
       err => {
         console.log(err);
