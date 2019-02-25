@@ -20,6 +20,8 @@ export class TodoListComponent implements OnInit {
   public todoBody: string;
   public todoCategory: string;
 
+  // Use this with ngIf in html file, so search by status only shows when show is true
+  show: boolean =false;
 
   // Inject the TodoListService into this component.
   // That's what happens in the following constructor.
