@@ -25,7 +25,7 @@
           <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus, todoBody, todoCategory)">
             <mat-expansion-panel-header>
               <!--The second todo shows the big list, Not sure what the email is about.-->
-              <mat-panel-title matTooltip="status: {{todo.status}}">{{todo.body}}</mat-panel-title>
+              <mat-panel-title matTooltip="Complete: {{todo.status}}">{{todo.body}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
