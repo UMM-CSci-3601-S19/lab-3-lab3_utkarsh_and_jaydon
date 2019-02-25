@@ -1,22 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {TodoListService} from './todo-list.service';
-import {Todo} from './todo';
+import {TodoListService} from '../todos/todo-list.service';
+import {Todo} from '../todos/todo';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-todo-list-component',
-  templateUrl: 'todo-list.component.html',
-  styleUrls: ['./todo-list.component.css'],
+  templateUrl: 'src/app/Incomplete/todo-list-ByStatusC.component.html',
+  styleUrls: ['../todos/todo-list.component.css'],
   providers: []
 })
 
-export class TodoListComponent implements OnInit {
+export class TodoCompleteListComponent implements OnInit {
   // These are public so that tests can reference them (.spec.ts)
   public todos: Todo[];
   public filteredTodos: Todo[];
 
   public todoOwner: string;
-  public todoStatus: boolean;
   public todoBody: string;
   public todoCategory: string;
 
@@ -31,7 +30,7 @@ export class TodoListComponent implements OnInit {
 
   }
   // searchCategory: string for when we want to add searching by category
-  public filterTodos(searchOwner: string, searchStatus: string, searchBody: string, searchCategory: string): Todo[] {
+  public filterTodos(searchOwner: string, searchBody: string, searchCategory: string): Todo[] {
 
     this.filteredTodos = this.todos;
 
@@ -44,18 +43,12 @@ export class TodoListComponent implements OnInit {
       });
     }
 
-    // Filter by status
-    if (searchStatus != null) {
-      this.filteredTodos = this.filteredTodos.filter(todo => {
-        return !searchStatus || (todo.status.toString().indexOf(searchStatus) !== -1);
-      });
-    }
 
     //Filter by body
     if(searchBody != null) {
       console.log("Body is" + searchBody);
       this.filteredTodos = this.filteredTodos.filter(todo => {
-      return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
+        return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
       });
     }
 
@@ -80,11 +73,11 @@ export class TodoListComponent implements OnInit {
     // Subscribe waits until the data is fully downloaded, then
     // performs an action on it (the first lambda)
 
-    const todos: Observable<Todo[]> = this.todoListService.getTodos();
+    const todos: Observable<Todo[]> = this.todoListService.getTodoByComplete();
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoStatus.toString(), this.todoBody, this.todoCategory);
+        this.filterTodos(this.todoOwner, this.todoBody, this.todoCategory);
       },
       err => {
         console.log(err);

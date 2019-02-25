@@ -8,6 +8,8 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {UserListComponent} from './users/user-list.component';
 import {TodoListComponent} from './todos/todo-list.component';
+import {TodoCompleteListComponent} from './Complete/todo-list-complete.component';
+import {TodoIncompleteListComponent} from './Incomplete/todo-list-incomplete.component';
 import {UserListService} from './users/user-list.service';
 import {TodoListService} from './todos/todo-list.service';
 import {Routing} from './app.routes';
@@ -32,6 +34,8 @@ import {TodoComponent} from './todos/todo.component';
     UserComponent,
     TodoListComponent,
     TodoComponent,
+    TodoCompleteListComponent,
+    TodoIncompleteListComponent,
 
   ],
   providers: [
