@@ -19,7 +19,7 @@
           <mat-expansion-panel #elem [id]="user.email" *ngFor="let user of this.filterUsers(userName, userAge)">
             <mat-expansion-panel-header>
 
-              <mat-panel-title matTooltip="email: {{user.email}}">{{user.name}}</mat-panel-title>
+              <mat-panel-title [ngClass]="{'custom-card':true}" matTooltip="email: {{user.email}}">{{user.name}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>Works for {{user.company}}</mat-panel-description>
