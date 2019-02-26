@@ -17,16 +17,16 @@
         </mat-form-field>
 
         <mat-accordion *ngIf="todosInc; else todosError">
-          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterIncTodos(todoOwner, todoBody, todoCategory)">
+          <mat-expansion-panel #elem [id]="todo._id" *ngFor="let todo of this.filterIncTodos(todoOwner, todoBody, todoCategory)">
             <mat-expansion-panel-header>
               <!--The second todo shows the big list, Not sure what the email is about.-->
-              <mat-panel-title matTooltip="id: {{todo.id}}">{{todo.body}}</mat-panel-title>
+              <mat-panel-title matTooltip="id: {{todo.owner}}">{{todo.body}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
             <mat-panel-description>Complete: {{todo.status}}</mat-panel-description>
             <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
-            <mat-panel-description>Id: {{todo.id}}</mat-panel-description>
+            <mat-panel-description>Id: {{todo._id}}</mat-panel-description>
 
           </mat-expansion-panel>
         </mat-accordion>
