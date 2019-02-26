@@ -50,10 +50,10 @@ export class TodoPage {
   }
 
 
-  /*getUniqueTodo(body: string) {
+  getUniqueTodo(body: string) {
     let todo = element(by.id(body)).getText();
     this.highlightElement(by.id(body));
 
     return todo;
-  }*/
+  }
 }

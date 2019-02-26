@@ -29,21 +29,23 @@ describe('Todo list', () => {
     expect(page.getTodoTitle()).toEqual('Todos');
   });
 
-  // it('should type something in filter owner box and check that it returned correct element', () => {
-  //   page.navigateTo();
-  //   page.typeAName("Fr");
-  //   expect(page.getUniqueTodo("Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.")).toEqual("Fry");
-  //   page.backspace();
-  //   page.typeAName("Blan")
-  //   expect(page.getUniqueTodo("In sunt ex non tempor cillum commodo amet incididunt anim qui commodo quis. Cillum non labore ex sint esse.")).toEqual("Blanche");
-  // });
+/*  it('should type something in filter owner box and check that it returned correct element', () => {
+    page.navigateTo();
+    page.typeAOwner("Fr");
+    expect(page.getUniqueTodo("Excepteur anim mollit magna amet in cillum. Elit quis aliqua elit mollit eu.")).toEqual("Fry");
+    page.backspace();
+    page.typeAOwner("Blan")
+    expect(page.getUniqueTodo("Id culpa adipisicing in do ea et. Id tempor fugiat dolore nisi laborum exercitation..")).toEqual("Blanche");
+  });
 
-  // it('should click on the age 27 times and return 3 elements', () => {
-  //   page.navigateTo();
-  //   page.getTodoByCategory();
-  //
-  //   expect(page.getUniqueTodo("stokesclayton@momentia.com")).toEqual("Stokes Clayton");
-  //
-  //   expect(page.getUniqueTodo("merrillparker@escenta.com")).toEqual("Merrill Parker");
-  // });
+
+  it('should type in filter category box and check that it returned correct element', () => {
+    page.navigateTo();
+    page.typeACategory("Vid");
+    expect(page.getUniqueTodo("Culpa velit exercitation aute quis nisi nulla. Ex ipsum ut aute exercitation id proident proident.")).toEqual("video games");
+    page.backspace();
+    page.typeACategory("homew")
+    expect(page.getUniqueTodo("Ullamco irure laborum magna dolor non. Anim occaecat adipisicing cillum eu magna in.")).toEqual("homework");
+  });*/
+
 });
