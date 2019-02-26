@@ -12,7 +12,7 @@ import {Observable} from 'rxjs/Observable';
 
 export class TodoCompleteListComponent implements OnInit {
   // These are public so that tests can reference them (.spec.ts)
-  public todos: Todo[];
+  public todosC: Todo[];
   public filteredTodos: Todo[];
 
   public todoOwner: string;
@@ -30,14 +30,14 @@ export class TodoCompleteListComponent implements OnInit {
 
   }
   // searchCategory: string for when we want to add searching by category
-  public filterTodos(searchOwner: string, searchBody: string, searchCategory: string): Todo[] {
+  public filterCTodos(searchOwner: string, searchBody: string, searchCategory: string): Todo[] {
 
-    this.filteredTodos = this.todos;
+    this.filteredTodos = this.todosC;
 
     // Filter by owner
     if (searchOwner != null) {
       searchOwner = searchOwner.toLocaleLowerCase();
-      console.log("owner is: " + searchOwner);
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchOwner || todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
       });
@@ -46,7 +46,7 @@ export class TodoCompleteListComponent implements OnInit {
 
     //Filter by body
     if(searchBody != null) {
-      console.log("Body is" + searchBody);
+      searchBody = searchBody.toLocaleLowerCase();
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
       });
@@ -54,6 +54,7 @@ export class TodoCompleteListComponent implements OnInit {
 
     //Filter by category
     if(searchCategory != null) {
+      searchCategory = searchCategory.toLocaleLowerCase();
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
       })
@@ -76,8 +77,8 @@ export class TodoCompleteListComponent implements OnInit {
     const todos: Observable<Todo[]> = this.todoListService.getTodoByComplete();
     todos.subscribe(
       returnedTodos => {
-        this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoBody, this.todoCategory);
+        this.todosC = returnedTodos;
+        this.filterCTodos(this.todoOwner, this.todoBody, this.todoCategory);
       },
       err => {
         console.log(err);

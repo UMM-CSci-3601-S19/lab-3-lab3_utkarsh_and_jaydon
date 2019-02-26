@@ -1,7 +1,7 @@
 <div layout-gt-sm="row">
   <div flex-gt-sm="80" flex-offset-gt-sm="10">
     <mat-card>
-      <mat-card-title id="todo-list-title">Todos</mat-card-title>
+      <mat-card-title id="todo-list-title">Incomplete Todos</mat-card-title>
       <mat-divider></mat-divider>
       <mat-card-content>
         <mat-form-field>
@@ -16,15 +16,15 @@
           <input matInput id="todoCategory" #input type="text" placeholder="Search for Category" (input)="todoCategory=$event.target.value">
         </mat-form-field>
 
-        <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus, todoBody, todoCategory)">
+        <mat-accordion *ngIf="todosInc; else todosError">
+          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterIncTodos(todoOwner, todoBody, todoCategory)">
             <mat-expansion-panel-header>
               <!--The second todo shows the big list, Not sure what the email is about.-->
               <mat-panel-title matTooltip="id: {{todo.id}}">{{todo.body}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
-            <mat-panel-description>Status: {{todo.status}}</mat-panel-description>
+            <mat-panel-description>Complete: {{todo.status}}</mat-panel-description>
             <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
             <mat-panel-description>Id: {{todo.id}}</mat-panel-description>
 

@@ -3,12 +3,14 @@ import {TodoListService} from './todo-list.service';
 import {Todo} from './todo';
 import {Observable} from 'rxjs/Observable';
 
+
 @Component({
   selector: 'app-todo-list-component',
   templateUrl: 'todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
   providers: []
 })
+
 
 export class TodoListComponent implements OnInit {
   // These are public so that tests can reference them (.spec.ts)
@@ -20,6 +22,7 @@ export class TodoListComponent implements OnInit {
   public todoBody: string;
   public todoCategory: string;
 
+  Status: string[] = ['true', 'false'];
 
   // Inject the TodoListService into this component.
   // That's what happens in the following constructor.
@@ -73,6 +76,8 @@ export class TodoListComponent implements OnInit {
 
     return this.filteredTodos;
   }
+
+
 
   /**
    * Starts an asynchronous operation to update the todos list

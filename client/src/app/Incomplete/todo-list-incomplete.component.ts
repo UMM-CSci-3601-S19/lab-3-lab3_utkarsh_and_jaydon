@@ -12,7 +12,7 @@ import {Observable} from 'rxjs/Observable';
 
 export class TodoIncompleteListComponent implements OnInit {
   // These are public so that tests can reference them (.spec.ts)
-  public todos: Todo[];
+  public todosInc: Todo[];
   public filteredTodos: Todo[];
 
   public todoOwner: string;
@@ -30,14 +30,14 @@ export class TodoIncompleteListComponent implements OnInit {
 
   }
   // searchCategory: string for when we want to add searching by category
-  public filterTodos(searchOwner: string, searchBody: string, searchCategory: string): Todo[] {
+  public filterIncTodos(searchOwner: string, searchBody: string, searchCategory: string): Todo[] {
 
-    this.filteredTodos = this.todos;
+    this.filteredTodos = this.todosInc;
 
     // Filter by owner
     if (searchOwner != null) {
       searchOwner = searchOwner.toLocaleLowerCase();
-      console.log("owner is: " + searchOwner);
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchOwner || todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
       });
@@ -45,7 +45,7 @@ export class TodoIncompleteListComponent implements OnInit {
 
     //Filter by body
     if(searchBody != null) {
-      console.log("Body is" + searchBody);
+      searchBody = searchBody.toLocaleLowerCase();
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
       });
@@ -53,6 +53,7 @@ export class TodoIncompleteListComponent implements OnInit {
 
     //Filter by category
     if(searchCategory != null) {
+      searchCategory = searchCategory.toLocaleLowerCase();
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
       })
@@ -75,8 +76,8 @@ export class TodoIncompleteListComponent implements OnInit {
     const todos: Observable<Todo[]> = this.todoListService.getTodoByIncomplete();
     todos.subscribe(
       returnedTodos => {
-        this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoBody, this.todoCategory);
+        this.todosInc = returnedTodos;
+        this.filterIncTodos(this.todoOwner, this.todoBody, this.todoCategory);
       },
       err => {
         console.log(err);

@@ -18,6 +18,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import {CustomModule} from './custom.module';
 import {UserComponent} from './users/user.component';
 import {TodoComponent} from './todos/todo.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import {TodoComponent} from './todos/todo.component';
     HttpClientModule,
     Routing,
     CustomModule,
+    MatCheckboxModule,
+    MatRadioModule,
   ],
   declarations: [
     AppComponent,

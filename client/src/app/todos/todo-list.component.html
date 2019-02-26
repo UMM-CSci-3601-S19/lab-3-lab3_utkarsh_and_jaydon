@@ -7,11 +7,7 @@
         <mat-form-field>
           <input matInput id="todoOwner" #input placeholder="Filter by Owner" (input)="todoOwner = $event.target.value">
         </mat-form-field>
-
-        <mat-form-field>
-          <input matInput id="todoStatus" #input type="text" placeholder="Filter by Status"
-                 (input)="todoStatus = $event.target.value">
-        </mat-form-field>
+        
 
         <mat-form-field>
       <input matInput id="todoBody" #input type="text" placeholder="Search for Body" (input)="todoBody=$event.target.value">
@@ -21,6 +17,13 @@
           <input matInput id="todoCategory" #input type="text" placeholder="Search for Category" (input)="todoCategory=$event.target.value">
         </mat-form-field>
 
+        <div>
+          <mat-checkbox #input value="true" (input) = "todoStatus=$event.target.value">Complete</mat-checkbox>
+          <br/>
+          <mat-checkbox #input value="false" (input) = "todoStatus=$event.target.value">Incomplete</mat-checkbox>
+        </div><br/>
+
+
         <mat-accordion *ngIf="todos; else todosError">
           <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus, todoBody, todoCategory)">
             <mat-expansion-panel-header>
@@ -29,7 +32,7 @@
 
             </mat-expansion-panel-header>
             <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
-            <mat-panel-description>Status: {{todo.status}}</mat-panel-description>
+            <mat-panel-description>Complete: {{todo.status}}</mat-panel-description>
             <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
             <mat-panel-description>Id: {{todo.id}}</mat-panel-description>
 
