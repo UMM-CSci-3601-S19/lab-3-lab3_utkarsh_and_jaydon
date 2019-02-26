@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-todo-list-component',
-  templateUrl: 'src/app/Incomplete/todo-list-ByStatusI.component.html',
+  templateUrl: 'todo-list-ByStatusI.component.html',
   styleUrls: ['../todos/todo-list.component.css'],
   providers: []
 })
