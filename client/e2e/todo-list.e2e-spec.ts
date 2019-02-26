@@ -46,13 +46,28 @@ describe('Todo list', () => {
     page.typeACategory("home");
     expect(page.getUniqueTodo("58895985c32328e015584db2")).toEqual("Proident cupidatat exercitation id ullamco magna do qui aliquip id. Eiusmod labore non nostrud culpa duis incididunt incididunt esse occaecat amet officia.");
 
-    page.backspace();
-    page.backspace();
-    page.backspace();
-    page.backspace();
+    for (let i = 0; i < 4; i++) {
+      page.backspace();
+    }
 
     page.typeACategory("Video Ga");
     expect(page.getUniqueTodo("588959857b092c39a681b077")).toEqual("Culpa velit exercitation aute quis nisi nulla. Ex ipsum ut aute exercitation id proident proident.");
   });
+
+  it('should type in filter body box and check that it returned correct element', ()=> {
+    page.navigateTo();
+    page.typeABody("repre");
+    expect(page.getUniqueTodo("588959858d6f5457cb2b779f")).toEqual("Reprehenderit aute ad voluptate aute sit sint. Dolor commodo voluptate excepteur id excepteur culpa commodo non occaecat voluptate et.");
+
+    for (let i = 0; i < 5; i++) {
+      page.backspace();
+    }
+
+    page.typeABody("esse est");
+    expect(page.getUniqueTodo("58895985c1849992336c219b")).toEqual("Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.");
+
+
+
+  })
 
 });
