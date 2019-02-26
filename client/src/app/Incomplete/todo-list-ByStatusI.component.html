@@ -20,7 +20,7 @@
           <mat-expansion-panel #elem [id]="todo._id" *ngFor="let todo of this.filterIncTodos(todoOwner, todoBody, todoCategory)">
             <mat-expansion-panel-header>
               <!--The second todo shows the big list, Not sure what the email is about.-->
-              <mat-panel-title matTooltip="id: {{todo.owner}}">{{todo.body}}</mat-panel-title>
+              <mat-panel-title matTooltip="Owner: {{todo.owner}}">{{todo.body}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>Belongs to {{todo.owner}}</mat-panel-description>
