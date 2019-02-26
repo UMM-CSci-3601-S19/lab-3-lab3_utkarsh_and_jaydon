@@ -22,7 +22,6 @@ export class TodoListComponent implements OnInit {
   public todoBody: string;
   public todoCategory: string;
 
-  Status: string[] = ['true', 'false'];
 
   // Inject the TodoListService into this component.
   // That's what happens in the following constructor.

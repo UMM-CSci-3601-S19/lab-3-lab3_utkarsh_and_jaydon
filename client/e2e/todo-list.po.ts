@@ -27,19 +27,19 @@ export class TodoPage {
   }
 
   typeAOwner(owner:string) {
-    let input = element(by.id('ownerName'));
+    let input = element(by.id('todoOwner'));
     input.click();
     input.sendKeys(owner);
   }
 
   typeABody(body: string){
-    let input = element(by.id('bodyContent'));
+    let input = element(by.id('todoBody'));
     input.click();
     input.sendKeys(body);
   }
 
   typeACategory(category: string){
-    let input = element(by.id('categoryTitle'));
+    let input = element(by.id('todoCategory'));
     input.click();
     input.sendKeys(category);
   }
@@ -50,9 +50,9 @@ export class TodoPage {
   }
 
 
-  getUniqueTodo(body: string) {
-    let todo = element(by.id(body)).getText();
-    this.highlightElement(by.id(body));
+  getUniqueTodo(idString: string) {
+    let todo = element(by.id(idString)).getText();
+    this.highlightElement(by.id(idString));
 
     return todo;
   }

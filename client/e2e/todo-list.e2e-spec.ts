@@ -11,7 +11,7 @@ browser.driver.controlFlow().execute = function () {
   //This delay is only put here so that you can watch the browser do its' thing.
   //If you're tired of it taking long you can remove this call
   origFn.call(browser.driver.controlFlow(), function () {
-    return protractor.promise.delayed(10);
+    return protractor.promise.delayed(5);
   });
 
   return origFn.apply(browser.driver.controlFlow(), args);
@@ -29,23 +29,30 @@ describe('Todo list', () => {
     expect(page.getTodoTitle()).toEqual('Todos');
   });
 
-/*  it('should type something in filter owner box and check that it returned correct element', () => {
+
+
+  it('should type something in filter owner box and check that it returned correct element', () => {
     page.navigateTo();
-    page.typeAOwner("Fr");
-    expect(page.getUniqueTodo("Excepteur anim mollit magna amet in cillum. Elit quis aliqua elit mollit eu.")).toEqual("Fry");
+    page.typeAOwner("f");
+    expect(page.getUniqueTodo("58895985ae3b752b124e7663")).toEqual("Ullamco irure laborum magna dolor non. Anim occaecat adipisicing cillum eu magna in.");
     page.backspace();
     page.typeAOwner("Blan")
-    expect(page.getUniqueTodo("Id culpa adipisicing in do ea et. Id tempor fugiat dolore nisi laborum exercitation..")).toEqual("Blanche");
+    expect(page.getUniqueTodo("58895985f1d5fb5cdab2c125")).toEqual("Aliqua ut proident sunt minim. Sunt cupidatat ullamco reprehenderit sit Lorem.");
   });
 
 
   it('should type in filter category box and check that it returned correct element', () => {
     page.navigateTo();
-    page.typeACategory("Vid");
-    expect(page.getUniqueTodo("Culpa velit exercitation aute quis nisi nulla. Ex ipsum ut aute exercitation id proident proident.")).toEqual("video games");
+    page.typeACategory("home");
+    expect(page.getUniqueTodo("58895985c32328e015584db2")).toEqual("Proident cupidatat exercitation id ullamco magna do qui aliquip id. Eiusmod labore non nostrud culpa duis incididunt incididunt esse occaecat amet officia.");
+
     page.backspace();
-    page.typeACategory("homew")
-    expect(page.getUniqueTodo("Ullamco irure laborum magna dolor non. Anim occaecat adipisicing cillum eu magna in.")).toEqual("homework");
-  });*/
+    page.backspace();
+    page.backspace();
+    page.backspace();
+
+    page.typeACategory("Video Ga");
+    expect(page.getUniqueTodo("588959857b092c39a681b077")).toEqual("Culpa velit exercitation aute quis nisi nulla. Ex ipsum ut aute exercitation id proident proident.");
+  });
 
 });
