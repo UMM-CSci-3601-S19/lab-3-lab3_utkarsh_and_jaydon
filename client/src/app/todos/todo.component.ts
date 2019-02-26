@@ -27,28 +27,13 @@ export class TodoComponent implements OnInit {
     }
   }
 
-  private subscribeToServiceForOwner() {
-    if (this.owner) {
-      this.todoListService.getTodoByOwner(this.owner).subscribe(
-        todo => this.todo = todo,
-        err => {
-          console.log(err);
-        }
-      );
-    }
-  }
 
   setId(id: string) {
     this.id = id;
     this.subscribeToServiceForId();
   }
-  setOwner(owner: string) {
-    this.owner = owner;
-    this.subscribeToServiceForOwner();
-  }
 
   ngOnInit(): void {
     this.subscribeToServiceForId();
-    this.subscribeToServiceForOwner();
   }
 }
