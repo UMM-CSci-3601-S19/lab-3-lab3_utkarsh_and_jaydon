@@ -18,9 +18,9 @@
         </mat-form-field>
 
         <div>
-          <mat-checkbox #input value="true" (input) = "todoStatus=$event.target.value">Complete</mat-checkbox>
+          <mat-checkbox name="statusName" ngDefaultControl [(ngModel)]="todoStatus">Complete</mat-checkbox>
           <br/>
-          <mat-checkbox #input value="false" (input) = "todoStatus=$event.target.value">Incomplete</mat-checkbox>
+          <!--<mat-checkbox #input [value]="false" (input) = "todoStatus=$event.target.value">Incomplete</mat-checkbox>-->
         </div><br/>
 
 

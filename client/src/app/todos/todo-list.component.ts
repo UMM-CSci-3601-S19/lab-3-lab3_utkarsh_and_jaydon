@@ -33,7 +33,7 @@ export class TodoListComponent implements OnInit {
 
   }
   // searchCategory: string for when we want to add searching by category
-  public filterTodos(searchOwner: string, searchStatus: string, searchBody: string, searchCategory: string): Todo[] {
+  public filterTodos(searchOwner: string, searchStatus: boolean, searchBody: string, searchCategory: string): Todo[] {
 
     this.filteredTodos = this.todos;
 
@@ -48,10 +48,10 @@ export class TodoListComponent implements OnInit {
 
     // Filter by status
     if (searchStatus != null) {
-      searchStatus = searchStatus.toLocaleLowerCase();
+      // searchStatus = searchStatus.toLocaleLowerCase();
 
       this.filteredTodos = this.filteredTodos.filter(todo => {
-        return !searchStatus || todo.status.toString().toLowerCase().indexOf(searchStatus) !== -1;
+        return !searchStatus || todo.status === searchStatus;
       });
     }
 
@@ -93,7 +93,7 @@ export class TodoListComponent implements OnInit {
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoStatus.toString(), this.todoBody, this.todoCategory);
+        this.filterTodos(this.todoOwner, this.todoStatus, this.todoBody, this.todoCategory);
       },
       err => {
         console.log(err);
