@@ -19,7 +19,7 @@ import {CustomModule} from './custom.module';
 import {UserComponent} from './users/user.component';
 import {TodoComponent} from './todos/todo.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatRadioModule} from '@angular/material/radio';
+import {MatRadioModule} from '@angular/material/radio'; //Remove if we end up going with checkboxes. Although it doesn't harm to jus tahve it
 
 
 @NgModule({

@@ -26,31 +26,34 @@ export class TodoPage {
     return title;
   }
 
-  typeAName(name: string) {
-    let input = element(by.id('todoOwner'));
+  typeAOwner(owner:string) {
+    let input = element(by.id('ownerName'));
     input.click();
-    input.sendKeys(name);
+    input.sendKeys(owner);
   }
 
-  selectUpKey() {
-    browser.actions().sendKeys(Key.ARROW_UP).perform();
+  typeABody(body: string){
+    let input = element(by.id('bodyContent'));
+    input.click();
+    input.sendKeys(body);
   }
 
-  getTodoByCategory() {
-    let input = element(by.id('todoCategory'));
+  typeACategory(category: string){
+    let input = element(by.id('categoryTitle'));
     input.click();
-    input.sendKeys(Key.TAB);
+    input.sendKeys(category);
   }
+
 
   backspace(){
     browser.actions().sendKeys(Key.BACK_SPACE).perform();
   }
 
 
-  getUniqueTodo(body:string) {
+  /*getUniqueTodo(body: string) {
     let todo = element(by.id(body)).getText();
     this.highlightElement(by.id(body));
 
     return todo;
-  }
+  }*/
 }
